@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% if title %}{{ title }} — {{ site.name }}{% else %}{{ site.name }} — {{ site.strapline }}{% endif %}</title>
+    <meta name="description" content="{{ subtitle or description or site.description }}" />
+    <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
+
+    <meta property="og:site_name" content="{{ site.name }}" />
+    <meta property="og:type" content="{{ 'article' if layout == 'article.njk' else 'website' }}" />
+    <meta property="og:title" content="{{ title or site.name }}" />
+    <meta property="og:description" content="{{ subtitle or description or site.description }}" />
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+    {% if image %}<meta property="og:image" content="{{ site.url }}{{ image }}" />{% endif %}
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link
+      rel="alternate"
+      type="application/atom+xml"
+      title="{{ site.name }}"
+      href="{{ site.url }}/feed.xml"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+    {% if math %}
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
+      />
+    {% endif %}
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="site-header" id="site-header">
+      <div class="site-header__inner">
+        <a class="wordmark" href="/">{{ site.name }}</a>
+
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="primary-nav"
+          aria-label="Menu"
+        >
+          <span></span><span></span><span></span>
+        </button>
+
+        <nav class="primary-nav" id="primary-nav" aria-label="Primary">
+          <a href="/">Home</a>
+          <a href="/articles/">Articles</a>
+          {% for category in categories %}
+            {% if category.inNav %}
+              <a href="/{{ category.slug }}/">{{ category.navName }}</a>
+            {% endif %}
+          {% endfor %}
+          <a href="/research/">Research</a>
+          <a href="/about/">About</a>
+          <a class="btn btn--small nav-cta" href="/write/">Write With Us</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">{{ content | safe }}</main>
+
+    {% if not hideNewsletter %}
+      {% include "newsletter.njk" %}
+    {% endif %}
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <div class="site-footer__brand">
+          <p class="site-footer__name">{{ site.name }}</p>
+          <p class="site-footer__desc">{{ site.description }}</p>
+          <p class="site-footer__meta">{{ site.place }} · Founded {{ site.founded }}</p>
+        </div>
+
+        <nav class="site-footer__col" aria-label="Sections">
+          <p class="site-footer__heading">Sections</p>
+          <a href="/articles/">Articles</a>
+          {% for category in categories %}
+            <a href="/{{ category.slug }}/">{{ category.name }}</a>
+          {% endfor %}
+        </nav>
+
+        <nav class="site-footer__col" aria-label="More">
+          <p class="site-footer__heading">The platform</p>
+          <a href="/research/">Research &amp; Projects</a>
+          <a href="/contributors/">Contributors</a>
+          <a href="/about/">About</a>
+          <a href="/write/">Write With Us</a>
+          <a href="mailto:{{ site.email }}">Contact</a>
+        </nav>
+
+        <nav class="site-footer__col" aria-label="Social">
+          <p class="site-footer__heading">Follow</p>
+          <a href="{{ site.social.linkedin or '#' }}">LinkedIn</a>
+          <a href="{{ site.social.instagram or '#' }}">Instagram</a>
+          <a href="{{ site.social.x or '#' }}">X</a>
+        </nav>
+      </div>
+
+      <div class="site-footer__base">
+        <p>© {{ site.founded }} {{ site.name }}. Written and edited by students.</p>
+        <p>Editorial analysis only — nothing here is financial advice.</p>
+      </div>
+    </footer>
+
+    <script src="/js/site.js" defer></script>
+    {% if math %}
+      <script
+        defer
+        src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"
+      ></script>
+      <script
+        defer
+        src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.querySelector('.prose'), { delimiters: [{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}] })"
+      ></script>
+    {% endif %}
+  </body>
+</html>

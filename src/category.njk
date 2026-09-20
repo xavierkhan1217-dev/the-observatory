@@ -1,0 +1,59 @@
+---
+layout: base.njk
+pagination:
+  data: categories
+  size: 1
+  alias: category
+permalink: "/{{ category.slug }}/"
+eleventyComputed:
+  title: "{{ category.name }}"
+  description: "{{ category.blurb }}"
+---
+
+{% from "macros.njk" import articleCard, articleRow with context %}
+{% set posts = collections.articles | byCategory(category.slug) %}
+
+<header class="wrap page-head">
+  <h1 class="page-head__title">{{ category.name }}</h1>
+  <p class="page-head__lede">{{ category.blurb }}</p>
+  <ul class="subcats">
+    {% for sub in category.subcategories %}
+      <li>{{ sub }}</li>
+    {% endfor %}
+  </ul>
+</header>
+
+{% if posts.length %}
+  <section class="wrap category-lead">
+    {{ articleCard(posts[0], "lead") }}
+  </section>
+
+  {% if posts.length > 1 %}
+    <section class="wrap">
+      <div class="section-head">
+        <h2 class="section-title">More in {{ category.name }}</h2>
+      </div>
+      <div class="stack">
+        {% for post in posts | exclude(posts[0].url) %}
+          {{ articleRow(post) }}
+        {% endfor %}
+      </div>
+    </section>
+  {% endif %}
+{% else %}
+  <section class="wrap">
+    <p class="empty">
+      Nothing published in {{ category.name }} yet. Add an article with
+      <code>category: {{ category.slug }}</code> and it appears here automatically.
+    </p>
+  </section>
+{% endif %}
+
+{% if category.disclaimer %}
+  <section class="wrap">
+    <p class="disclaimer">
+      Everything in {{ category.name }} is educational and editorial analysis written by students.
+      It does not constitute financial advice or a recommendation to buy or sell any asset.
+    </p>
+  </section>
+{% endif %}

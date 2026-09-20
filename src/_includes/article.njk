@@ -1,0 +1,101 @@
+---
+layout: base.njk
+---
+
+{% from "macros.njk" import articleCard with context %}
+{% set cat = category | category %}
+{% set writer = author | author %}
+
+<article class="article">
+  <header class="article__head">
+    <a class="label label--link" href="/{{ cat.slug }}/">{{ cat.name }}</a>
+    {% if subcategory %}<span class="label label--muted">{{ subcategory }}</span>{% endif %}
+
+    <h1 class="article__title">{{ title }}</h1>
+    {% if subtitle %}<p class="article__subtitle">{{ subtitle }}</p>{% endif %}
+
+    <div class="article__meta">
+      <div>
+        <p class="article__author">
+          {% if writer %}
+            <a href="/contributors/{{ writer.slug }}/">{{ writer.name }}</a>
+          {% else %}
+            {{ author }}
+          {% endif %}
+        </p>
+        {% if writer and writer.degree %}
+          <p class="article__author-sub">{{ writer.degree }}, {{ writer.university }}</p>
+        {% endif %}
+      </div>
+      <p class="meta">
+        Published <time datetime="{{ date | isoDate }}">{{ date | monthYear }}</time>
+        <span class="meta__dot">·</span>
+        {{ content | readingTime }} min read
+      </p>
+    </div>
+  </header>
+
+  {% if image %}
+    <figure class="article__hero">
+      <img src="{{ image }}" alt="{{ imageAlt or '' }}" />
+      {% if imageCaption %}<figcaption>{{ imageCaption }}</figcaption>{% endif %}
+    </figure>
+  {% endif %}
+
+  <div class="prose">{{ content | safe }}</div>
+
+  {% if references %}
+    <section class="references">
+      <h2 class="section-title">References</h2>
+      <ol>
+        {% for reference in references %}
+          <li>{{ reference | safe }}</li>
+        {% endfor %}
+      </ol>
+    </section>
+  {% endif %}
+
+  {% if topics %}
+    <ul class="tags">
+      {% for topic in topics %}
+        <li>{{ topic }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  {% if cat.disclaimer %}
+    <p class="disclaimer">
+      This article is educational and editorial analysis. It does not constitute financial advice.
+    </p>
+  {% endif %}
+
+  {% if writer %}
+    <section class="author-box">
+      <h2 class="section-title">About the author</h2>
+      <div class="author-box__inner">
+        <div>
+          <p class="author-box__name">
+            <a href="/contributors/{{ writer.slug }}/">{{ writer.name }}</a>
+          </p>
+          <p class="author-box__sub">
+            {{ writer.degree }}{% if writer.year %}, {{ writer.year }}{% endif %} · {{ writer.university }}
+          </p>
+          <p class="author-box__bio">{{ writer.bio }}</p>
+          <a class="textlink" href="/contributors/{{ writer.slug }}/">All articles by {{ writer.name }} →</a>
+        </div>
+      </div>
+    </section>
+  {% endif %}
+</article>
+
+{% set relatedPosts = collections.articles | related({ url: page.url, data: { category: category } }) %}
+{% if relatedPosts.length %}
+  <section class="wrap related">
+    <h2 class="section-title">Related articles</h2>
+    <div class="grid grid--3">
+      {% for post in relatedPosts %}
+        {{ articleCard(post) }}
+      {% endfor %}
+    </div>
+  </section>
+{% endif %}

@@ -1,0 +1,83 @@
+---
+layout: base.njk
+title: Our Contributors
+permalink: /contributors/
+---
+
+<header class="wrap page-head">
+  <h1 class="page-head__title">Our Contributors</h1>
+  <p class="page-head__lede">
+    The students writing and editing {{ site.name }}. We are always looking for more —
+    <a class="textlink" href="/write/">write with us</a>.
+  </p>
+</header>
+
+<section class="wrap">
+  <div class="section-head">
+    <h2 class="section-title">Founders</h2>
+  </div>
+  <div class="grid grid--2">
+    {% for person in authors %}
+      {% if person.founder %}
+        <article class="person person--founder reveal">
+          <div class="person__avatar" aria-hidden="true">{{ person.name | first }}</div>
+          <h3 class="person__name">
+            <a href="/contributors/{{ person.slug }}/">{{ person.name }}</a>
+          </h3>
+          <p class="label label--muted">{{ person.role }}</p>
+          <p class="person__sub">
+            {{ person.degree }}{% if person.year %}, {{ person.year }}{% endif %} · {{ person.university }}
+          </p>
+          <p class="person__bio">{{ person.bio }}</p>
+          <ul class="chips">
+            {% for interest in person.interests %}
+              <li>{{ interest }}</li>
+            {% endfor %}
+          </ul>
+          <a class="textlink" href="/contributors/{{ person.slug }}/">
+            Articles by {{ person.name }} →
+          </a>
+        </article>
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>
+
+{% set others = [] %}
+{% for person in authors %}
+  {% if not person.founder %}{% set others = (others.push(person), others) %}{% endif %}
+{% endfor %}
+
+{% if others.length %}
+  <section class="wrap">
+    <div class="section-head">
+      <h2 class="section-title">Contributors</h2>
+    </div>
+    <div class="grid grid--3">
+      {% for person in others %}
+        <article class="person reveal">
+          <div class="person__avatar" aria-hidden="true">{{ person.name | first }}</div>
+          <h3 class="person__name">
+            <a href="/contributors/{{ person.slug }}/">{{ person.name }}</a>
+          </h3>
+          <p class="person__sub">
+            {{ person.degree }}{% if person.year %}, {{ person.year }}{% endif %} · {{ person.university }}
+          </p>
+          <p class="person__bio">{{ person.bio }}</p>
+        </article>
+      {% endfor %}
+    </div>
+  </section>
+{% endif %}
+
+<section class="wrap cta-band">
+  <div class="cta-band__inner">
+    <div>
+      <h2 class="cta-band__title">Want to join them?</h2>
+      <p class="cta-band__desc">
+        We take pitches from students in any subject, at any university.
+      </p>
+    </div>
+    <a class="btn" href="/write/">Become a Contributor</a>
+  </div>
+</section>

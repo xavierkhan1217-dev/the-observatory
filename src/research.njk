@@ -1,0 +1,52 @@
+---
+layout: base.njk
+title: Research & Projects
+permalink: /research/
+---
+
+<header class="wrap page-head">
+  <h1 class="page-head__title">Research &amp; Projects</h1>
+  <p class="page-head__lede">
+    Longer work that does not fit an article: student research, data projects, long-form reports,
+    economic models, policy papers and surveys.
+  </p>
+</header>
+
+{% if collections.projects.length %}
+  <section class="wrap">
+    <div class="stack">
+      {% for project in collections.projects %}
+        <article class="row reveal">
+          <a class="row__link" href="{{ project.url }}">
+            <div class="row__media">
+              <img src="{{ project.data.image or '/images/abstract-research.svg' }}" alt="" loading="lazy" />
+            </div>
+            <div class="row__body">
+              <p class="label">{{ project.data.kind }}{% if project.data.status %} · {{ project.data.status }}{% endif %}</p>
+              <h2 class="row__title">{{ project.data.title }}</h2>
+              <p class="row__subtitle">{{ project.data.subtitle }}</p>
+              <p class="meta">
+                {% set lead = project.data.author | author %}
+                <span class="meta__author">{{ lead.name if lead else project.data.author }}</span>
+                <span class="meta__dot">·</span>
+                {{ project.date | monthYear }}
+              </p>
+            </div>
+          </a>
+        </article>
+      {% endfor %}
+    </div>
+  </section>
+{% else %}
+  <section class="wrap">
+    <p class="empty">No projects published yet.</p>
+  </section>
+{% endif %}
+
+<section class="wrap prose prose--page">
+  <h2>Proposing a project</h2>
+  <p>
+    Research projects can be collaborative and can run over a term or longer. If you have a
+    dissertation, dataset or model you think deserves a wider readership, tell us about it.
+  </p>
+</section>

@@ -1,0 +1,63 @@
+{% macro articleCard(post, size = "default") %}
+  {% set cat = post.data.category | category %}
+  {% set writer = post.data.author | author %}
+  <article class="card card--{{ size }} reveal">
+    <a class="card__link" href="{{ post.url }}">
+      <div class="card__media">
+        <img
+          src="{{ post.data.image or '/images/abstract-' + post.data.category + '.svg' }}"
+          alt=""
+          loading="lazy"
+        />
+      </div>
+      <div class="card__body">
+        <p class="label">{{ cat.name }}{% if post.data.subcategory %} · {{ post.data.subcategory }}{% endif %}</p>
+        <h3 class="card__title">{{ post.data.title }}</h3>
+        {% if post.data.subtitle %}
+          <p class="card__subtitle">{{ post.data.subtitle }}</p>
+        {% endif %}
+        <p class="meta">
+          <span class="meta__author">{{ writer.name if writer else post.data.author }}</span>
+          <span class="meta__dot">·</span>
+          {{ post.templateContent | readingTime }} min read
+          <span class="meta__dot">·</span>
+          {{ post.date | monthYear }}
+        </p>
+      </div>
+    </a>
+  </article>
+{% endmacro %}
+
+{% macro articleRow(post) %}
+  {% set cat = post.data.category | category %}
+  {% set writer = post.data.author | author %}
+  <article
+    class="row reveal"
+    data-category="{{ post.data.category }}"
+    data-search="{{ post.data.title }} {{ post.data.subtitle }} {{ writer.name if writer else post.data.author }} {{ cat.name }} {{ post.data.subcategory }} {{ post.data.topics | join(' ') if post.data.topics }}"
+  >
+    <a class="row__link" href="{{ post.url }}">
+      <div class="row__media">
+        <img
+          src="{{ post.data.image or '/images/abstract-' + post.data.category + '.svg' }}"
+          alt=""
+          loading="lazy"
+        />
+      </div>
+      <div class="row__body">
+        <p class="label">{{ cat.name }}{% if post.data.subcategory %} · {{ post.data.subcategory }}{% endif %}</p>
+        <h3 class="row__title">{{ post.data.title }}</h3>
+        {% if post.data.subtitle %}
+          <p class="row__subtitle">{{ post.data.subtitle }}</p>
+        {% endif %}
+        <p class="meta">
+          <span class="meta__author">{{ writer.name if writer else post.data.author }}</span>
+          <span class="meta__dot">·</span>
+          {{ post.templateContent | readingTime }} min read
+          <span class="meta__dot">·</span>
+          {{ post.date | monthYear }}
+        </p>
+      </div>
+    </a>
+  </article>
+{% endmacro %}

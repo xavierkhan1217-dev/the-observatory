@@ -1,0 +1,48 @@
+---
+layout: base.njk
+pagination:
+  data: authors
+  size: 1
+  alias: person
+permalink: "/contributors/{{ person.slug }}/"
+eleventyComputed:
+  title: "{{ person.name }}"
+  description: "{{ person.bio }}"
+---
+
+{% from "macros.njk" import articleRow with context %}
+{% set posts = collections.articles | byAuthor(person.slug) %}
+
+<header class="wrap page-head page-head--person">
+  <div class="person__avatar person__avatar--lg" aria-hidden="true">{{ person.name | first }}</div>
+  <div>
+    <h1 class="page-head__title">{{ person.name }}</h1>
+    {% if person.role %}<p class="label label--muted">{{ person.role }}</p>{% endif %}
+    <p class="page-head__lede">
+      {{ person.degree }}{% if person.year %}, {{ person.year }}{% endif %} · {{ person.university }}
+    </p>
+    <p class="person__bio">{{ person.bio }}</p>
+    <ul class="chips">
+      {% for interest in person.interests %}
+        <li>{{ interest }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+</header>
+
+<section class="wrap">
+  <div class="section-head">
+    <h2 class="section-title">
+      {{ posts.length }} article{{ "s" if posts.length != 1 }}
+    </h2>
+  </div>
+  {% if posts.length %}
+    <div class="stack">
+      {% for post in posts %}
+        {{ articleRow(post) }}
+      {% endfor %}
+    </div>
+  {% else %}
+    <p class="empty">No articles published yet.</p>
+  {% endif %}
+</section>

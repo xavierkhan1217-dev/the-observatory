@@ -1,0 +1,104 @@
+---
+layout: base.njk
+---
+
+{% from "macros.njk" import articleCard with context %}
+
+<section class="hero">
+  <div class="hero__inner">
+    <h1 class="hero__title">{{ site.strapline }}</h1>
+    <p class="hero__lede">{{ site.tagline }}</p>
+    <p class="hero__intro">{{ site.intro }}</p>
+    <div class="hero__actions">
+      <a class="btn" href="/articles/">Explore Articles</a>
+      <a class="btn btn--ghost" href="/about/">About Us</a>
+    </div>
+  </div>
+</section>
+
+{% set featured = collections.featured if collections.featured.length else collections.articles %}
+{% set lead = featured[0] %}
+
+{% if lead %}
+  <section class="wrap featured">
+    <div class="section-head">
+      <h2 class="section-title">Featured</h2>
+      <a class="textlink" href="/articles/">All articles →</a>
+    </div>
+
+    <div class="featured__grid">
+      {{ articleCard(lead, "lead") }}
+      <div class="featured__side">
+        {% for post in featured | exclude(lead.url) | limit(3) %}
+          {{ articleCard(post, "compact") }}
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+{% else %}
+  <section class="wrap featured">
+    <div class="prelaunch">
+      <p class="label">First issue</p>
+      <h2 class="prelaunch__title">Our first pieces are being written now.</h2>
+      <p class="prelaunch__body">
+        {{ site.name }} launches with analysis across economics, finance, politics and ideas.
+        If you would like your work in the first issue, we are taking pitches.
+      </p>
+      <div class="hero__actions">
+        <a class="btn" href="/write/">Write With Us</a>
+        <a class="btn btn--ghost" href="/about/">About the project</a>
+      </div>
+    </div>
+  </section>
+{% endif %}
+
+<section class="wrap sections-strip">
+  <div class="section-head">
+    <h2 class="section-title">Sections</h2>
+  </div>
+  <div class="grid grid--3">
+    {% for category in categories %}
+      <a class="topic reveal" href="/{{ category.slug }}/">
+        <h3 class="topic__name">{{ category.name }}</h3>
+        <p class="topic__blurb">{{ category.blurb }}</p>
+        <span class="topic__count">
+          {{ collections.articles | byCategory(category.slug) | length }} article{{ "s" if (collections.articles | byCategory(category.slug) | length) != 1 }}
+        </span>
+      </a>
+    {% endfor %}
+  </div>
+</section>
+
+{% set recent = collections.articles | limit(6) %}
+{% if recent.length %}
+  <section class="wrap latest">
+    <div class="section-head">
+      <h2 class="section-title">Latest analysis</h2>
+      <a class="textlink" href="/articles/">All articles →</a>
+    </div>
+    <div class="grid grid--3">
+      {% for post in recent %}
+        {{ articleCard(post) }}
+      {% endfor %}
+    </div>
+  </section>
+{% endif %}
+
+{% if collections.projects.length %}
+  <section class="wrap research-strip">
+    <div class="section-head">
+      <h2 class="section-title">Research &amp; Projects</h2>
+      <a class="textlink" href="/research/">All research →</a>
+    </div>
+    <div class="grid grid--3">
+      {% for project in collections.projects | limit(3) %}
+        <a class="project reveal" href="{{ project.url }}">
+          <p class="label">{{ project.data.kind }}</p>
+          <h3 class="project__title">{{ project.data.title }}</h3>
+          <p class="project__summary">{{ project.data.subtitle }}</p>
+          <p class="meta">{{ project.date | monthYear }}</p>
+        </a>
+      {% endfor %}
+    </div>
+  </section>
+{% endif %}

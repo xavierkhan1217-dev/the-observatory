@@ -1,0 +1,74 @@
+---
+layout: base.njk
+title: Write With Us
+permalink: /write/
+---
+
+<header class="wrap page-head">
+  <h1 class="page-head__title">Write With Us</h1>
+  <p class="page-head__lede">
+    {{ site.name }} is open to any student with something worth arguing. You do not need
+    experience, a byline elsewhere, or a finished piece — a clear idea is enough to start.
+  </p>
+  <div class="hero__actions">
+    <a class="btn" href="mailto:{{ site.email }}?subject=Pitch">Become a Contributor</a>
+  </div>
+</header>
+
+<section class="wrap">
+  <div class="section-head">
+    <h2 class="section-title">Where you could write</h2>
+  </div>
+  <div class="grid grid--3">
+    {% set areas = ["Economics", "Finance", "Politics", "Philosophy", "Technology", "International Affairs", "Data & Research"] %}
+    {% for area in areas %}
+      <div class="area reveal">{{ area }}</div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="section-head">
+    <h2 class="section-title">What we're looking for</h2>
+  </div>
+  <div class="grid grid--3">
+    {% set criteria = [
+      { title: "Original thinking", body: "An argument that is yours, not a restatement of the consensus." },
+      { title: "Strong arguments", body: "A clear claim, defended — including against the best objection to it." },
+      { title: "Evidence", body: "Data, sources and citations a reader can follow up and check." },
+      { title: "Clear writing", body: "Readable by someone outside your discipline without losing precision." },
+      { title: "Intellectual curiosity", body: "Questions you actually want answered, not topics you think sound impressive." },
+      { title: "Willingness to be edited", body: "We edit for clarity and rigour. Good pieces get better this way." }
+    ] %}
+    {% for item in criteria %}
+      <div class="value reveal">
+        <h3 class="value__title">{{ item.title }}</h3>
+        <p class="value__body">{{ item.body }}</p>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="wrap prose prose--page">
+  <h2>How to pitch</h2>
+  <p>Send us three things:</p>
+  <ol>
+    <li>A working headline.</li>
+    <li>A paragraph on the argument you intend to make.</li>
+    <li>How you plan to support it — data, sources, or the literature you are drawing on.</li>
+  </ol>
+  <p>
+    We reply to every pitch. If it is not right for us, we will tell you why rather than leaving
+    you guessing.
+  </p>
+</section>
+
+<section class="wrap cta-band">
+  <div class="cta-band__inner">
+    <div>
+      <h2 class="cta-band__title">Ready to pitch?</h2>
+      <p class="cta-band__desc">Email us and we will come back to you.</p>
+    </div>
+    <a class="btn" href="mailto:{{ site.email }}?subject=Pitch">Become a Contributor</a>
+  </div>
+</section>

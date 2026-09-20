@@ -1,0 +1,90 @@
+---
+layout: base.njk
+title: About
+permalink: /about/
+---
+
+<header class="wrap page-head">
+  <h1 class="page-head__title">A platform for the next generation of thinkers.</h1>
+  <p class="page-head__lede">
+    {{ site.name }} was founded by Xavier Khan and Giorgio Montecelli as a space for students to
+    publish serious analysis and engage with questions across economics, finance, politics and
+    philosophy.
+  </p>
+</header>
+
+<section class="wrap prose prose--page">
+  <p>
+    We are a student-led publication based in {{ site.place }}. Everything here is researched,
+    written and edited by students — and held to a standard we would be comfortable defending in
+    a seminar.
+  </p>
+
+  <h2>Why we started</h2>
+  <p>
+    Students produce a great deal of genuinely interesting work: essays, dissertations, data
+    projects, arguments worked out over months. Almost none of it is read by anyone other than the
+    person marking it. What is missing is not the thinking — it is a professional platform through
+    which to publish it.
+  </p>
+  <p>
+    That is the gap this project exists to fill. We wanted somewhere that treats student work as
+    worth publishing properly, and holds it to the standard that implies.
+  </p>
+</section>
+
+<section class="wrap">
+  <div class="section-head">
+    <h2 class="section-title">What we stand for</h2>
+  </div>
+  <div class="grid grid--3">
+    {% set values = [
+      { title: "Independent thinking", body: "We are not affiliated with any party, society or institutional line. Writers argue for what they can defend." },
+      { title: "Evidence-based analysis", body: "Claims are supported with data, sources and reasoning a reader can check and disagree with." },
+      { title: "Interdisciplinary perspectives", body: "Economics, politics and philosophy are treated as one conversation, because in practice they are." },
+      { title: "Student-led research", body: "Original work by students — not summaries of what established publications already said." },
+      { title: "Intellectual debate", body: "We publish disagreement, including with ourselves, and we correct errors in public." },
+      { title: "Clarity over jargon", body: "Complex arguments written so a smart reader outside the field can follow them." }
+    ] %}
+    {% for value in values %}
+      <div class="value reveal">
+        <h3 class="value__title">{{ value.title }}</h3>
+        <p class="value__body">{{ value.body }}</p>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="section-head">
+    <h2 class="section-title">Founders</h2>
+    <a class="textlink" href="/contributors/">All contributors →</a>
+  </div>
+  <div class="grid grid--2">
+    {% for person in authors %}
+      {% if person.founder %}
+        <article class="person person--founder reveal">
+          <div class="person__avatar" aria-hidden="true">{{ person.name | first }}</div>
+          <h3 class="person__name">
+            <a href="/contributors/{{ person.slug }}/">{{ person.name }}</a>
+          </h3>
+          <p class="label label--muted">{{ person.role }}</p>
+          <p class="person__sub">{{ person.degree }} · {{ person.university }}</p>
+          <p class="person__bio">{{ person.bio }}</p>
+        </article>
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>
+
+<section class="wrap cta-band">
+  <div class="cta-band__inner">
+    <div>
+      <h2 class="cta-band__title">Write with us</h2>
+      <p class="cta-band__desc">
+        If you have an argument worth making, we would rather have your draft than your hesitation.
+      </p>
+    </div>
+    <a class="btn" href="/write/">Become a Contributor</a>
+  </div>
+</section>

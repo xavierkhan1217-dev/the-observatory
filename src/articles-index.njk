@@ -1,0 +1,63 @@
+---
+layout: base.njk
+title: Articles
+permalink: /articles/
+---
+
+{% from "macros.njk" import articleRow with context %}
+
+<header class="wrap page-head">
+  <h1 class="page-head__title">Latest Analysis</h1>
+  <p class="page-head__lede">
+    Research, commentary and analysis across economics, finance, politics and ideas.
+  </p>
+</header>
+
+{% if not collections.articles.length %}
+  <div class="wrap archive">
+    <div class="prelaunch">
+      <p class="label">Nothing published yet</p>
+      <h2 class="prelaunch__title">The archive starts here.</h2>
+      <p class="prelaunch__body">
+        We are commissioning the first pieces now. Sections are open across economics, finance,
+        politics, philosophy, technology and society.
+      </p>
+      <div class="hero__actions">
+        <a class="btn" href="/write/">Write With Us</a>
+      </div>
+    </div>
+  </div>
+{% else %}
+
+<div class="wrap archive" data-archive>
+  <div class="archive__controls">
+    <div class="search">
+      <label class="visually-hidden" for="article-search">Search articles</label>
+      <input
+        id="article-search"
+        type="search"
+        placeholder="Search articles, authors or topics…"
+        data-search-input
+        autocomplete="off"
+      />
+    </div>
+
+    <div class="filters" role="group" aria-label="Filter by category">
+      <button class="filter is-active" type="button" data-filter="all">All</button>
+      {% for category in categories %}
+        <button class="filter" type="button" data-filter="{{ category.slug }}">
+          {{ category.name }}
+        </button>
+      {% endfor %}
+    </div>
+  </div>
+
+  <p class="archive__empty" data-empty hidden>No articles match that search yet.</p>
+
+  <div class="stack" data-results>
+    {% for post in collections.articles %}
+      {{ articleRow(post) }}
+    {% endfor %}
+  </div>
+</div>
+{% endif %}

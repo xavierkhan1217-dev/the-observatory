@@ -1,0 +1,53 @@
+---
+layout: base.njk
+---
+
+{% set writer = author | author %}
+
+<article class="article">
+  <header class="article__head">
+    <a class="label label--link" href="/research/">Research &amp; Projects</a>
+    <span class="label label--muted">{{ kind }}{% if status %} · {{ status }}{% endif %}</span>
+
+    <h1 class="article__title">{{ title }}</h1>
+    {% if subtitle %}<p class="article__subtitle">{{ subtitle }}</p>{% endif %}
+
+    <div class="article__meta">
+      <div>
+        <p class="article__author">
+          {% if writer %}
+            <a href="/contributors/{{ writer.slug }}/">{{ writer.name }}</a>
+          {% else %}
+            {{ author }}
+          {% endif %}
+        </p>
+        {% if writer and writer.degree %}
+          <p class="article__author-sub">{{ writer.degree }}, {{ writer.university }}</p>
+        {% endif %}
+      </div>
+      <p class="meta">
+        <time datetime="{{ date | isoDate }}">{{ date | monthYear }}</time>
+        <span class="meta__dot">·</span>
+        {{ content | readingTime }} min read
+      </p>
+    </div>
+  </header>
+
+  <div class="prose">{{ content | safe }}</div>
+
+  {% if references %}
+    <section class="references">
+      <h2 class="section-title">References</h2>
+      <ol>
+        {% for reference in references %}
+          <li>{{ reference | safe }}</li>
+        {% endfor %}
+      </ol>
+    </section>
+  {% endif %}
+
+  <p class="disclaimer">
+    Student research published for discussion. Findings are the author's own and should be read
+    as analysis, not advice.
+  </p>
+</article>
