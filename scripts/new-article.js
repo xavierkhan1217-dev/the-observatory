@@ -54,5 +54,8 @@ Authors available: ${authors.map((a) => a.slug).join(", ")}
 `;
 
 fs.writeFileSync(target, body);
-console.log(`Created src/articles/${slug}.md`);
-console.log("Run `npm start` and it appears at /articles/" + slug + "/");
+
+console.log(`\nCreated src/articles/${slug}.md — opening it now.\n`);
+console.log("When you have finished writing, run:  npm run publish\n");
+
+require("child_process").spawn("open", [target], { detached: true, stdio: "ignore" }).unref();
