@@ -1,0 +1,129 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "src/images/uploads"
+public_folder: "/images/uploads"
+
+publish_mode: editorial_workflow
+
+collections:
+  - name: "articles"
+    label: "Articles"
+    label_singular: "Article"
+    folder: "src/articles"
+    create: true
+    slug: "{{slug}}"
+    preview_path: "articles/{{slug}}"
+    summary: "{{title}} — {{author}}"
+    sortable_fields: ["date", "title"]
+    fields:
+      - { name: "title", label: "Headline", widget: "string" }
+      - {
+          name: "subtitle",
+          label: "Standfirst",
+          widget: "text",
+          hint: "One or two sentences shown under the headline and on article cards.",
+        }
+      - {
+          name: "author",
+          label: "Author",
+          widget: "select",
+          options:
+            [
+              { label: "Xavier Khan", value: "xavier-khan" },
+              { label: "Giorgio Montecelli", value: "giorgio-montecelli" },
+            ],
+        }
+      - {
+          name: "category",
+          label: "Section",
+          widget: "select",
+          options:
+            [
+              { label: "Economics", value: "economics" },
+              { label: "Finance & Markets", value: "finance" },
+              { label: "Politics & Policy", value: "politics" },
+              { label: "Philosophy & Ideas", value: "ideas" },
+              { label: "Technology", value: "technology" },
+              { label: "Society", value: "society" },
+            ],
+        }
+      - {
+          name: "subcategory",
+          label: "Sub-section",
+          widget: "string",
+          required: false,
+          hint: "Optional, e.g. Macroeconomics, Markets, Public Policy.",
+        }
+      - { name: "date", label: "Publication date", widget: "datetime", format: "YYYY-MM-DD" }
+      - {
+          name: "featured",
+          label: "Feature on the homepage",
+          widget: "boolean",
+          default: false,
+          required: false,
+        }
+      - {
+          name: "topics",
+          label: "Topics",
+          widget: "list",
+          required: false,
+          hint: "Tags shown at the end of the article.",
+        }
+      - {
+          name: "image",
+          label: "Header image",
+          widget: "image",
+          required: false,
+          hint: "Optional. Leave empty to use the section graphic.",
+        }
+      - {
+          name: "math",
+          label: "Contains equations",
+          widget: "boolean",
+          default: false,
+          required: false,
+        }
+      - {
+          name: "references",
+          label: "References",
+          widget: "list",
+          required: false,
+        }
+      - { name: "body", label: "Article", widget: "markdown" }
+
+  - name: "projects"
+    label: "Research & Projects"
+    label_singular: "Project"
+    folder: "src/projects"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { name: "title", label: "Title", widget: "string" }
+      - { name: "subtitle", label: "Summary", widget: "text" }
+      - {
+          name: "author",
+          label: "Lead",
+          widget: "select",
+          options:
+            [
+              { label: "Xavier Khan", value: "xavier-khan" },
+              { label: "Giorgio Montecelli", value: "giorgio-montecelli" },
+            ],
+        }
+      - {
+          name: "kind",
+          label: "Type",
+          widget: "select",
+          options: ["Data project", "Survey", "Report", "Policy paper", "Model"],
+        }
+      - {
+          name: "status",
+          label: "Status",
+          widget: "select",
+          options: ["Planned", "In progress", "Published"],
+          required: false,
+        }
+      - { name: "date", label: "Date", widget: "datetime", format: "YYYY-MM-DD" }
+      - { name: "body", label: "Write-up", widget: "markdown" }
