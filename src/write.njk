@@ -11,7 +11,9 @@ permalink: /write/
     experience, a byline elsewhere, or a finished piece — a clear idea is enough to start.
   </p>
   <div class="hero__actions">
-    <a class="btn" href="mailto:{{ site.email }}?subject=Pitch">Become a Contributor</a>
+    <a class="btn" href="mailto:{{ site.email }}?subject=Pitch%20for%20{{ site.name | urlencode }}">
+      Become a Contributor
+    </a>
   </div>
 </header>
 
@@ -67,8 +69,12 @@ permalink: /write/
   <div class="cta-band__inner">
     <div>
       <h2 class="cta-band__title">Ready to pitch?</h2>
-      <p class="cta-band__desc">Email us and we will come back to you.</p>
+      <p class="cta-band__desc">
+        Send your article or idea to {{ site.email }} and we will come back to you.
+      </p>
     </div>
-    <a class="btn" href="mailto:{{ site.email }}?subject=Pitch">Become a Contributor</a>
+    <a class="btn" href="mailto:{{ site.email }}?subject=Pitch%20for%20{{ site.name | urlencode }}">
+      Become a Contributor
+    </a>
   </div>
 </section>
