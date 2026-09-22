@@ -4,6 +4,8 @@ title: Our Contributors
 permalink: /contributors/
 ---
 
+{% from "macros.njk" import avatar, socialLinks with context %}
+
 <header class="wrap page-head">
   <h1 class="page-head__title">Our Contributors</h1>
   <p class="page-head__lede">
@@ -20,7 +22,7 @@ permalink: /contributors/
     {% for person in authors %}
       {% if person.founder %}
         <article class="person person--founder reveal">
-          <div class="person__avatar" aria-hidden="true">{{ person.name | first }}</div>
+          {{ avatar(person) }}
           <h3 class="person__name">
             <a href="/contributors/{{ person.slug }}/">{{ person.name }}</a>
           </h3>
@@ -34,9 +36,12 @@ permalink: /contributors/
               <li>{{ interest }}</li>
             {% endfor %}
           </ul>
-          <a class="textlink" href="/contributors/{{ person.slug }}/">
-            Articles by {{ person.name }} →
-          </a>
+          <div class="person__actions">
+            <a class="textlink" href="/contributors/{{ person.slug }}/">
+              Articles by {{ person.name }} →
+            </a>
+            {{ socialLinks(person) }}
+          </div>
         </article>
       {% endif %}
     {% endfor %}
@@ -56,7 +61,7 @@ permalink: /contributors/
     <div class="grid grid--3">
       {% for person in others %}
         <article class="person reveal">
-          <div class="person__avatar" aria-hidden="true">{{ person.name | first }}</div>
+          {{ avatar(person) }}
           <h3 class="person__name">
             <a href="/contributors/{{ person.slug }}/">{{ person.name }}</a>
           </h3>
@@ -64,6 +69,7 @@ permalink: /contributors/
             {{ person.degree }}{% if person.year %}, {{ person.year }}{% endif %} · {{ person.university }}
           </p>
           <p class="person__bio">{{ person.bio }}</p>
+          {{ socialLinks(person) }}
         </article>
       {% endfor %}
     </div>

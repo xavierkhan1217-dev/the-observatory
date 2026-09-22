@@ -1,3 +1,28 @@
+{% macro avatar(person, size = "") %}
+  {% if person.photo %}
+    <img
+      class="person__avatar person__avatar--photo {{ 'person__avatar--lg' if size == 'lg' }}"
+      src="{{ person.photo }}"
+      alt="{{ person.name }}"
+      loading="lazy"
+    />
+  {% else %}
+    <div class="person__avatar {{ 'person__avatar--lg' if size == 'lg' }}" aria-hidden="true">
+      {{ person.name | first }}
+    </div>
+  {% endif %}
+{% endmacro %}
+
+{% macro socialLinks(person) %}
+  {% if person.linkedin %}
+    <p class="person__links">
+      <a class="textlink" href="{{ person.linkedin }}" rel="me noopener" target="_blank">
+        LinkedIn →
+      </a>
+    </p>
+  {% endif %}
+{% endmacro %}
+
 {% macro articleCard(post, size = "default") %}
   {% set cat = post.data.category | category %}
   {% set writer = post.data.author | author %}

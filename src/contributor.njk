@@ -10,11 +10,11 @@ eleventyComputed:
   description: "{{ person.bio }}"
 ---
 
-{% from "macros.njk" import articleRow with context %}
+{% from "macros.njk" import articleRow, avatar, socialLinks with context %}
 {% set posts = collections.articles | byAuthor(person.slug) %}
 
 <header class="wrap page-head page-head--person">
-  <div class="person__avatar person__avatar--lg" aria-hidden="true">{{ person.name | first }}</div>
+  {{ avatar(person, "lg") }}
   <div>
     <h1 class="page-head__title">{{ person.name }}</h1>
     {% if person.role %}<p class="label label--muted">{{ person.role }}</p>{% endif %}
@@ -27,6 +27,7 @@ eleventyComputed:
         <li>{{ interest }}</li>
       {% endfor %}
     </ul>
+    {{ socialLinks(person) }}
   </div>
 </header>
 

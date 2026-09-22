@@ -4,6 +4,8 @@ title: About
 permalink: /about/
 ---
 
+{% from "macros.njk" import avatar, socialLinks with context %}
+
 <header class="wrap page-head">
   <h1 class="page-head__title">A platform for the next generation of thinkers.</h1>
   <p class="page-head__lede">
@@ -64,13 +66,14 @@ permalink: /about/
     {% for person in authors %}
       {% if person.founder %}
         <article class="person person--founder reveal">
-          <div class="person__avatar" aria-hidden="true">{{ person.name | first }}</div>
+          {{ avatar(person) }}
           <h3 class="person__name">
             <a href="/contributors/{{ person.slug }}/">{{ person.name }}</a>
           </h3>
           <p class="label label--muted">{{ person.role }}</p>
           <p class="person__sub">{{ person.degree }} · {{ person.university }}</p>
           <p class="person__bio">{{ person.bio }}</p>
+          {{ socialLinks(person) }}
         </article>
       {% endif %}
     {% endfor %}

@@ -9,6 +9,9 @@ module.exports = [
     university: "Durham University",
     degree: "Economics",
     year: "",
+    // Put a square photo at src/images/people/ and set the path here.
+    photo: "",
+    linkedin: "",
     interests: [
       "Economics",
       "Financial markets",
@@ -26,6 +29,8 @@ module.exports = [
     university: "Durham University",
     degree: "Politics & Philosophy",
     year: "",
+    photo: "",
+    linkedin: "",
     interests: [
       "Political economy",
       "Public policy",
