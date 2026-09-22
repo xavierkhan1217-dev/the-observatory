@@ -14,7 +14,7 @@ module.exports = {
 
   // Set this to your real domain once deployed — it is used for canonical
   // URLs, the sitemap and social previews, all of which Google relies on.
-  url: "https://the-observatory.netlify.app",
+  url: "https://thenewsobservatory.com",
 
   social: {
     linkedin: "",

@@ -30,7 +30,8 @@ Click this link, which opens GitHub's editor with the template already filled in
 Then:
 
 1. Change `new-article.md` in the filename box to something matching your headline,
-   e.g. `productivity-growth.md` (keep the `.md`).
+   e.g. `productivity-growth.md`. **Lowercase, hyphens instead of spaces, keep the `.md`** —
+   the filename becomes the article's web address.
 2. Edit the fields at the top and write the article below them.
 3. Click **Commit changes…**, then **Commit changes** again.
 
