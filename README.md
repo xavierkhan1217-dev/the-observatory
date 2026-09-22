@@ -19,13 +19,31 @@ Opens at http://localhost:8080 and reloads as you edit.
 
 ## Adding an article
 
-**1. Create the file**
+There are two ways. Use whichever suits you.
+
+### Option A — in the browser (no terminal)
+
+Click this link, which opens GitHub's editor with the template already filled in:
+
+**[Write a new article](https://github.com/xavierkhan1217-dev/the-observatory/new/main?filename=src/articles/new-article.md&value=---%0Atitle%3A%20Your%20headline%20here%0Asubtitle%3A%20One%20or%20two%20sentences%20shown%20under%20the%20headline%20and%20on%20article%20cards.%0Aauthor%3A%20xavier-khan%0Acategory%3A%20economics%0Asubcategory%3A%20Macroeconomics%0Adate%3A%202026-09-22%0Afeatured%3A%20true%0Atopics%3A%20%5B%5D%0A---%0A%0AWrite%20your%20article%20here.%0A)**
+
+Then:
+
+1. Change `new-article.md` in the filename box to something matching your headline,
+   e.g. `productivity-growth.md` (keep the `.md`).
+2. Edit the fields at the top and write the article below them.
+3. Click **Commit changes…**, then **Commit changes** again.
+
+The site rebuilds and publishes itself within a minute or two. Bookmark that link.
+
+### Option B — on your laptop
 
 ```bash
 npm run new -- "Your headline here"
 ```
 
-This creates `src/articles/your-headline-here.md` with the front matter already filled in.
+This creates `src/articles/your-headline-here.md`, already filled in, and opens it.
+When you have finished writing, run `npm run publish`.
 
 **2. Fill in the front matter** — the block at the top between `---` lines:
 
