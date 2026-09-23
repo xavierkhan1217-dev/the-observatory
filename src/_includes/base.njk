@@ -12,8 +12,19 @@
     <meta property="og:title" content="{{ title or site.name }}" />
     <meta property="og:description" content="{{ subtitle or description or site.description }}" />
     <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
-    {% if image %}<meta property="og:image" content="{{ site.url }}{{ image }}" />{% endif %}
+    <meta property="og:image" content="{{ site.url }}{{ image or '/images/share-card.png' }}" />
+    <meta property="og:locale" content="en_GB" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="{{ title or site.name }}" />
+    <meta name="twitter:description" content="{{ subtitle or description or site.description }}" />
+    <meta name="twitter:image" content="{{ site.url }}{{ image or '/images/share-card.png' }}" />
+
+    {% if layout == "article.njk" %}
+      {% set writer = author | author %}
+      <meta property="article:published_time" content="{{ date | isoDate }}" />
+      <meta property="article:author" content="{{ writer.name if writer else author }}" />
+      <meta property="article:section" content="{{ (category | category).name }}" />
+    {% endif %}
 
     <link
       rel="alternate"
@@ -33,6 +44,57 @@
         rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
       />
+    {% endif %}
+
+    {# Tells search engines what this site is, who publishes it, and what each article is. #}
+    {% if layout == "article.njk" %}
+      {% set writer = author | author %}
+      <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "NewsArticle",
+          "headline": {{ title | dump | safe }},
+          "description": {{ (subtitle or site.description) | dump | safe }},
+          "datePublished": "{{ date | isoDate }}",
+          "dateModified": "{{ date | isoDate }}",
+          "mainEntityOfPage": "{{ site.url }}{{ page.url }}",
+          "image": "{{ site.url }}{{ image or '/images/share-card.png' }}",
+          "articleSection": {{ (category | category).name | dump | safe }},
+          "author": {
+            "@type": "Person",
+            "name": {{ (writer.name if writer else author) | dump | safe }},
+            "url": "{{ site.url }}/contributors/{{ author }}/"
+          },
+          "publisher": {
+            "@type": "NewsMediaOrganization",
+            "name": {{ site.name | dump | safe }},
+            "url": "{{ site.url }}/"
+          }
+        }
+      </script>
+    {% else %}
+      <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "NewsMediaOrganization",
+          "name": {{ site.name | dump | safe }},
+          "alternateName": "The News Observatory",
+          "url": "{{ site.url }}/",
+          "description": {{ site.description | dump | safe }},
+          "foundingDate": "{{ site.founded }}",
+          "email": {{ site.emails[0] | dump | safe }},
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": {{ site.place | dump | safe }},
+            "addressCountry": "GB"
+          },
+          "founder": [
+            {% for person in authors %}{% if person.founder %}
+            { "@type": "Person", "name": {{ person.name | dump | safe }} }{% if not loop.last %},{% endif %}
+            {% endif %}{% endfor %}
+          ]
+        }
+      </script>
     {% endif %}
   </head>
   <body>
