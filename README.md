@@ -65,7 +65,7 @@ topics: ["Productivity", "Growth"]
 | --- | --- | --- |
 | `title` | yes | The headline |
 | `subtitle` | yes | Standfirst — also used on cards and for search engines |
-| `author` | yes | An author slug: `xavier-khan`, `giorgio-montecelli` |
+| `author` | yes | An author slug: `xavier-khan`, `giorgio-monticelli` |
 | `category` | yes | `economics`, `finance`, `politics`, `ideas`, `technology`, `society` |
 | `subcategory` | no | Any of the subcategories listed in `src/_data/categories.js` |
 | `date` | yes | `YYYY-MM-DD`. Newest articles appear first |

@@ -1,7 +1,7 @@
 ---
 title: Is a Degree Teaching or Signalling?
 subtitle: Fifty years after Spence, the argument remains unresolved — and the policy stakes are larger than the seminar-room framing suggests.
-author: giorgio-montecelli
+author: giorgio-monticelli
 category: society
 subcategory: Education
 date: 2026-09-08

@@ -22,8 +22,8 @@ module.exports = [
     bio: "Economics student with interests in economics, financial markets, investment, technology and economic policy.",
   },
   {
-    slug: "giorgio-montecelli",
-    name: "Giorgio Montecelli",
+    slug: "giorgio-monticelli",
+    name: "Giorgio Monticelli",
     founder: true,
     role: "Co-founder & Editor",
     university: "Durham University",

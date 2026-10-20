@@ -1,7 +1,7 @@
 ---
 title: The Quiet Power of Regulators
 subtitle: Most of what the state does to markets is done by agencies nobody votes for. That is a design choice, and it is worth defending on its merits rather than pretending it is not happening.
-author: giorgio-montecelli
+author: giorgio-monticelli
 category: politics
 subcategory: Institutions
 date: 2026-09-18

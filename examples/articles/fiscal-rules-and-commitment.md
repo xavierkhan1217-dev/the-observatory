@@ -1,7 +1,7 @@
 ---
 title: Fiscal Rules and the Limits of Commitment
 subtitle: Governments write rules to bind their future selves. The rules that survive contact with a recession are the ones designed on the assumption they will be tested.
-author: giorgio-montecelli
+author: giorgio-monticelli
 category: politics
 subcategory: Political Economy
 date: 2026-09-10

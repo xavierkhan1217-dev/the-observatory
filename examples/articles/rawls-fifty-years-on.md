@@ -1,7 +1,7 @@
 ---
 title: Rawls, Fifty Years On
 subtitle: The original position is usually taught as a thought experiment about fairness. It is better understood as an argument about what kind of reasoning a political justification has to survive.
-author: giorgio-montecelli
+author: giorgio-monticelli
 category: ideas
 subcategory: Political Philosophy
 date: 2026-09-16

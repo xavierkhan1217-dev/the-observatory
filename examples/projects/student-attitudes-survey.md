@@ -1,7 +1,7 @@
 ---
 title: What Students Actually Think About the State
 subtitle: A survey of student attitudes towards institutions, redistribution and democratic legitimacy — designed to separate stated political identity from underlying policy preferences.
-author: giorgio-montecelli
+author: giorgio-monticelli
 kind: Survey
 status: Planned
 date: 2026-09-06
