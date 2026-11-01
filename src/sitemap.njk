@@ -5,9 +5,13 @@ eleventyExcludeFromCollections: true
 <?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   {%- for page in collections.all %}
+  {#- Skip section pages that have no articles yet. #}
+  {%- set cat = page.data.category %}
+  {%- if not (cat.slug and not (collections.articles | byCategory(cat.slug) | length)) %}
   <url>
     <loc>{{ site.url }}{{ page.url }}</loc>
     <lastmod>{{ page.date | isoDate }}</lastmod>
   </url>
+  {%- endif %}
   {%- endfor %}
 </urlset>
