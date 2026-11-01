@@ -18,6 +18,30 @@ if (header) {
   window.addEventListener("scroll", onScroll, { passive: true });
 }
 
+// Reading progress: 0 at the start of the article body, 1 when its end reaches the bottom of the screen
+const progressBars = document.querySelectorAll("[data-progress]");
+const articleBody = document.querySelector(".article .prose");
+
+if (progressBars.length && articleBody) {
+  let queued = false;
+  const update = () => {
+    queued = false;
+    const rect = articleBody.getBoundingClientRect();
+    const read = -rect.top / Math.max(1, rect.height - window.innerHeight);
+    const progress = Math.min(1, Math.max(0, read)).toFixed(3);
+    progressBars.forEach((el) => el.style.setProperty("--progress", progress));
+  };
+  const queue = () => {
+    if (!queued) {
+      queued = true;
+      requestAnimationFrame(update);
+    }
+  };
+  update();
+  window.addEventListener("scroll", queue, { passive: true });
+  window.addEventListener("resize", queue);
+}
+
 // Reveal on scroll
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const revealables = document.querySelectorAll(".reveal");

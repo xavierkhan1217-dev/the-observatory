@@ -850,6 +850,79 @@ img {
   padding: 0 var(--gutter);
 }
 
+.article__rail {
+  display: none;
+}
+
+/* Wide screens: a narrow left rail and the text set left of centre. */
+@media (min-width: 1001px) {
+  .article--rail {
+    display: grid;
+    grid-template-columns: 56px minmax(0, 44rem) minmax(0, 1fr);
+    column-gap: clamp(40px, 5vw, 80px);
+    max-width: var(--wrap);
+  }
+
+  .article__rail {
+    display: block;
+    position: sticky;
+    top: 120px;
+    align-self: start;
+    margin-top: clamp(48px, 7vw, 86px);
+  }
+}
+
+/* ---------- reading progress ---------- */
+
+.progress-ring {
+  width: 44px;
+  height: 44px;
+}
+
+.progress-ring svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.progress-ring circle {
+  fill: none;
+  stroke-width: 3;
+}
+
+.progress-ring__track {
+  stroke: var(--line);
+}
+
+.progress-ring__value {
+  stroke: var(--accent);
+  stroke-linecap: round;
+  stroke-dasharray: 100;
+  stroke-dashoffset: calc(100 - var(--progress, 0) * 100);
+}
+
+.progress-bar {
+  position: absolute;
+  right: 0;
+  bottom: -1px;
+  left: 0;
+  height: 3px;
+}
+
+.progress-bar span {
+  display: block;
+  height: 100%;
+  background: #7fb2f0;
+  transform: scaleX(var(--progress, 0));
+  transform-origin: left;
+}
+
+@media (min-width: 1001px) {
+  .progress-bar {
+    display: none;
+  }
+}
+
 .article__head {
   padding-top: clamp(48px, 7vw, 86px);
 }

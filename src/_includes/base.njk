@@ -128,6 +128,10 @@
           <a class="btn btn--small nav-cta" href="/write/">Write With Us</a>
         </nav>
       </div>
+      {% if layout == "article.njk" %}
+        {# Reading progress on narrower screens, filled by site.js. #}
+        <div class="progress-bar" data-progress aria-hidden="true"><span></span></div>
+      {% endif %}
     </header>
 
     <main id="main">{{ content | safe }}</main>
