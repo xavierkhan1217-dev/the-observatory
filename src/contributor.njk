@@ -4,6 +4,7 @@ pagination:
   data: authors
   size: 1
   alias: person
+  addAllPagesToCollections: true
 permalink: "/contributors/{{ person.slug }}/"
 eleventyComputed:
   title: "{{ person.name }}"
