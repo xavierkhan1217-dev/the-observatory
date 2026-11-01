@@ -43,8 +43,8 @@ eleventyComputed:
 {% else %}
   <section class="wrap">
     <p class="empty">
-      Nothing published in {{ category.name }} yet. Add an article with
-      <code>category: {{ category.slug }}</code> and it appears here automatically.
+      Nothing published in {{ category.name }} yet.
+      <a class="textlink" href="/articles/">Browse all articles →</a>
     </p>
   </section>
 {% endif %}

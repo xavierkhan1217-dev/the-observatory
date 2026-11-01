@@ -118,7 +118,7 @@
           <a href="/">Home</a>
           <a href="/articles/">Articles</a>
           {% for category in categories %}
-            {% if category.inNav %}
+            {% if category.inNav and (collections.articles | byCategory(category.slug) | length) %}
               <a href="/{{ category.slug }}/">{{ category.navName }}</a>
             {% endif %}
           {% endfor %}
@@ -147,7 +147,9 @@
           <p class="site-footer__heading">Sections</p>
           <a href="/articles/">Articles</a>
           {% for category in categories %}
-            <a href="/{{ category.slug }}/">{{ category.name }}</a>
+            {% if collections.articles | byCategory(category.slug) | length %}
+              <a href="/{{ category.slug }}/">{{ category.name }}</a>
+            {% endif %}
           {% endfor %}
         </nav>
 

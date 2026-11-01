@@ -45,9 +45,11 @@ permalink: /articles/
     <div class="filters" role="group" aria-label="Filter by category">
       <button class="filter is-active" type="button" data-filter="all">All</button>
       {% for category in categories %}
-        <button class="filter" type="button" data-filter="{{ category.slug }}">
-          {{ category.name }}
-        </button>
+        {% if collections.articles | byCategory(category.slug) | length %}
+          <button class="filter" type="button" data-filter="{{ category.slug }}">
+            {{ category.name }}
+          </button>
+        {% endif %}
       {% endfor %}
     </div>
   </div>
