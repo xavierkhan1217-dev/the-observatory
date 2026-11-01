@@ -6,6 +6,8 @@ category: politics
 subcategory: Regulation
 date: 2026-10-20
 featured: true
+image: /images/articles/race-to-keep-europes-unicorns.jpg
+imageAlt: "Painted unicorn crammed under a low ceiling, its horn striking the top as it pushes against a wall marked with the EU stars"
 topics: ["EU Inc", "Start-ups", "Venture capital", "EU policy"]
 references:
   - "Mario Draghi, <a href='https://commission.europa.eu/topics/eu-competitiveness/draghi-report_en'><em>The Future of European Competitiveness</em></a>, European Commission, September 2024."
