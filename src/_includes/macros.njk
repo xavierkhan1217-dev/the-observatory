@@ -46,7 +46,7 @@
           <span class="meta__dot">·</span>
           {{ post.templateContent | readingTime }} min read
           <span class="meta__dot">·</span>
-          {{ post.date | readableDate }}
+          {{ post.date | monthYear }}
         </p>
       </div>
       {% if post.data.image %}{{ art(post.data.image, "card__art") }}{% endif %}
@@ -74,7 +74,7 @@
           <span class="meta__dot">·</span>
           {{ post.templateContent | readingTime }} min read
           <span class="meta__dot">·</span>
-          {{ post.date | readableDate }}
+          {{ post.date | monthYear }}
         </p>
       </div>
       {% if post.data.image %}{{ art(post.data.image, "row__art") }}{% endif %}

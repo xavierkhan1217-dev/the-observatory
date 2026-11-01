@@ -49,7 +49,7 @@ layout: base.njk
           {% endif %}
         </div>
         <p class="meta">
-          Published <time datetime="{{ date | isoDate }}">{{ date | readableDate }}</time>
+          Published <time datetime="{{ date | isoDate }}">{{ date | monthYear }}</time>
           <span class="meta__dot">·</span>
           {{ content | readingTime }} min read
         </p>
