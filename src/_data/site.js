@@ -3,11 +3,11 @@ module.exports = {
   shortName: "The Observatory",
   strapline: "Ideas. Markets. Policy.",
   tagline:
-    "Independent analysis from the next generation of economists, policymakers and thinkers.",
+    "Independent analysis of business, policy and the world, written by students.",
   description:
-    "Independent student-led analysis across economics, finance, politics and ideas.",
+    "Independent analysis of business, policy and the world, written by students. Balanced, evidence-led and from a different point of view.",
   intro:
-    "We publish student-led analysis across economics, finance, politics, philosophy and public policy — research and commentary written by students who take the subject seriously.",
+    "We explain what is actually happening and why it matters, from a young person's point of view. Balanced and evidence-led, never partisan, and never cold or detached.",
   place: "Durham",
   founded: 2026,
   // Pitches and contact go to everyone listed here.

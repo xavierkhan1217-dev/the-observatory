@@ -44,10 +44,11 @@ article page renders correctly.
 ## Editorial desk (Gio's brief)
 
 ### Mission
-The News Observatory is an independent current affairs publication. It explains what is actually
-happening in business, climate, diplomacy, and UK and EU policy, and why it matters, for readers who
-want analysis rather than noise. We are not trying to replicate any existing outlet. We aim to find
-the stories others miss and to explain the ones they cover badly.
+The News Observatory is an independent current affairs publication written by students. It explains
+what is actually happening in business, climate, diplomacy, and UK and EU policy, and why it matters,
+from a young person's point of view. The analysis is our own: balanced and evidence-led, never
+partisan, but not cold or detached either. We are not trying to replicate any existing outlet. We aim
+to bring a different view to the stories everyone is covering, and to find the ones they miss.
 
 ### Our reader
 Our readers are informed and curious: students, early-career professionals, and people working in finance, policy,
