@@ -1,5 +1,5 @@
 module.exports = {
-  name: "The Observatory",
+  name: "The News Observatory",
   shortName: "The Observatory",
   strapline: "Ideas. Markets. Policy.",
   tagline:
