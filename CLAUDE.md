@@ -187,6 +187,7 @@ One line per published story, newest first. Update this when publishing a new pi
 
 Format: Date | Headline | Beat | Author
 
+- 2026-11-01 | Winds of Change in Europe | Diplomacy / UK–EU relations | Giorgio Monticelli
 - 2026-10-20 | The race to keep Europe's unicorns | EU policy / business | Giorgio Monticelli
 
 Other articles already on the site are in `src/articles/`. Check them too.
