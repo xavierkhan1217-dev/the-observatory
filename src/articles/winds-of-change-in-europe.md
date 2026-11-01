@@ -1,6 +1,6 @@
 ---
 title: "Winds of Change in Europe"
-subtitle: "Brussels is pulling in countries an ocean away. A cornered German chancellor needs Europe to look like it’s winning. Burnham should give him the proof, and take the closer relationship Britain needs in return."
+subtitle: "Canada has been offered a seat at Europe’s table; Britain is still in the dog house. A cornered German chancellor needs Europe to look like it’s winning, and Burnham can give him the proof."
 author: giorgio-monticelli
 category: politics
 subcategory: International Relations
@@ -27,7 +27,7 @@ The offer of associate membership to Canada is telling of a redrawing of the Eur
 
 Canada has already joined SAFE, the EU’s €150bn fund for collective rearmament. If the UK doesn’t take some initiative, Ottawa will be closer to Brussels than London.
 
-What makes this moment different is Germany. Friedrich Merz has had a September to forget. On the 6th of September, the AfD won 43.8% in Saxony-Anhalt, giving it the possibility of controlling its own regional parliament. Two weeks later, the CDU failed to clear the 5% floor to get a single seat in the Mecklenburg-Vorpommern parliament. In Berlin, where the AfD is persona non grata, Die Linke, the far-left party, won. The fallout was such that Merz cancelled his trip to the UN General Assembly in New York.
+What makes this moment different is Germany. Friedrich Merz has had a September to forget. On the 6th of September, the AfD won 43.8% in Saxony-Anhalt, putting it within reach of power in its own regional parliament. Two weeks later, the CDU failed to clear the 5% floor to get a single seat in the Mecklenburg-Vorpommern parliament. In Berlin, where the AfD is persona non grata, Die Linke, the far-left party, won. The fallout was such that Merz cancelled his trip to the UN General Assembly in New York.
 
 Merz is backed into a corner; if the AfD comes to power, they have pledged to take Germany out of the euro, Schengen (the EU’s passport-free travel area), and have toyed with the idea of leaving the EU entirely. Not to mention sanctions being lifted on Russia.
 
