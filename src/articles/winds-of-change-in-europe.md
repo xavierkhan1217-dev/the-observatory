@@ -6,6 +6,8 @@ category: politics
 subcategory: International Relations
 date: 2026-11-01
 featured: true
+image: /images/articles/winds-of-change-in-europe.jpg
+imageAlt: "Painted British bulldog in a Union Jack coat sitting outside as a moose marked with a maple leaf strides through an arch of EU stars"
 topics: ["UK–EU relations", "Germany", "Canada", "European defence"]
 references:
   - "AP via PBS News, <a href='https://www.pbs.org/newshour/world/eu-chief-ursula-von-der-leyen-proposes-canada-becoming-the-blocs-1st-associate-member'>EU chief Ursula von der Leyen proposes Canada becoming the bloc's 1st associate member</a>, 16 September 2026."
