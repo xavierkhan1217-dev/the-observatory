@@ -7,12 +7,22 @@ layout: base.njk
 {% set writer = author | author %}
 
 <article class="article">
-  <header class="article__head">
-    <a class="label label--link" href="/{{ cat.slug }}/">{{ cat.name }}</a>
-    {% if subcategory %}<span class="label label--muted">{{ subcategory }}</span>{% endif %}
+  <header class="article__head{{ ' article__head--art' if image }}">
+    <div class="article__intro">
+      <div>
+        <a class="label label--link" href="/{{ cat.slug }}/">{{ cat.name }}</a>
+        {% if subcategory %}<span class="label label--muted">{{ subcategory }}</span>{% endif %}
 
-    <h1 class="article__title">{{ title }}</h1>
-    {% if subtitle %}<p class="article__subtitle">{{ subtitle }}</p>{% endif %}
+        <h1 class="article__title">{{ title }}</h1>
+        {% if subtitle %}<p class="article__subtitle">{{ subtitle }}</p>{% endif %}
+      </div>
+
+      {% if image %}
+        <div class="art article__art">
+          <img src="{{ image }}" alt="{{ imageAlt or '' }}" width="600" height="600" decoding="async" />
+        </div>
+      {% endif %}
+    </div>
 
     <div class="article__meta">
       <div>
@@ -34,13 +44,6 @@ layout: base.njk
       </p>
     </div>
   </header>
-
-  {% if image %}
-    <figure class="article__hero">
-      <img src="{{ image }}" alt="{{ imageAlt or '' }}" />
-      {% if imageCaption %}<figcaption>{{ imageCaption }}</figcaption>{% endif %}
-    </figure>
-  {% endif %}
 
   <div class="prose">{{ content | safe }}</div>
 

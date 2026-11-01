@@ -14,7 +14,8 @@
     <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
     <meta property="og:image" content="{{ site.url }}{{ image or '/images/share-card.png' }}" />
     <meta property="og:locale" content="en_GB" />
-    <meta name="twitter:card" content="summary_large_image" />
+    {# A square article drawing shows as a small thumbnail; the default card is wide. #}
+    <meta name="twitter:card" content="{{ 'summary' if image else 'summary_large_image' }}" />
     <meta name="twitter:title" content="{{ title or site.name }}" />
     <meta name="twitter:description" content="{{ subtitle or description or site.description }}" />
     <meta name="twitter:image" content="{{ site.url }}{{ image or '/images/share-card.png' }}" />

@@ -4,6 +4,8 @@ title: Research & Projects
 permalink: /research/
 ---
 
+{% from "macros.njk" import art %}
+
 <header class="wrap page-head">
   <h1 class="page-head__title">Research &amp; Projects</h1>
   <p class="page-head__lede">
@@ -16,11 +18,8 @@ permalink: /research/
   <section class="wrap">
     <div class="stack">
       {% for project in collections.projects %}
-        <article class="row reveal">
+        <article class="row{{ ' row--has-art' if project.data.image }} reveal">
           <a class="row__link" href="{{ project.url }}">
-            <div class="row__media">
-              <img src="{{ project.data.image or '/images/abstract-research.svg' }}" alt="" loading="lazy" />
-            </div>
             <div class="row__body">
               <p class="label">{{ project.data.kind }}{% if project.data.status %} · {{ project.data.status }}{% endif %}</p>
               <h2 class="row__title">{{ project.data.title }}</h2>
@@ -32,6 +31,7 @@ permalink: /research/
                 {{ project.date | monthYear }}
               </p>
             </div>
+            {% if project.data.image %}{{ art(project.data.image, "row__art") }}{% endif %}
           </a>
         </article>
       {% endfor %}

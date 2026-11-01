@@ -393,26 +393,35 @@ img {
 }
 
 .card__link {
-  display: block;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 20px;
+  align-items: start;
   text-decoration: none;
 }
 
-.card__media {
-  overflow: hidden;
-  aspect-ratio: 3 / 2;
-  background: var(--surface);
-  margin-bottom: 18px;
+/* Articles with a drawing show it as a square beside the headline. */
+.card--has-art .card__link {
+  grid-template-columns: minmax(0, 1fr) var(--art-size, 96px);
 }
 
-.card__media img {
+.art {
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  background: #fff;
+  border: 1px solid var(--line);
+}
+
+.art img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.6s var(--ease);
 }
 
-.card__link:hover .card__media img {
-  transform: scale(1.04);
+.card__link:hover .art img,
+.row__link:hover .art img {
+  transform: scale(1.03);
 }
 
 .card__title {
@@ -446,21 +455,37 @@ img {
   max-width: 52ch;
 }
 
-.card--lead .card__media {
-  aspect-ratio: 16 / 10;
-  margin-bottom: 24px;
+.card--lead {
+  --art-size: clamp(140px, 16vw, 220px);
 }
 
-.card--compact .card__link {
-  display: grid;
-  grid-template-columns: 96px minmax(0, 1fr);
-  gap: 18px;
-  align-items: start;
+.card--compact {
+  --art-size: 72px;
 }
 
-.card--compact .card__media {
-  aspect-ratio: 1 / 1;
-  margin-bottom: 0;
+/* In grid cards the drawing sits beside the label and headline only;
+   the summary and byline run full width underneath. */
+.card--default.card--has-art .card__link {
+  row-gap: 0;
+}
+
+.card--default.card--has-art .card__body {
+  display: contents;
+}
+
+.card--default .card__art {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+}
+
+.card--default.card--has-art .card__subtitle,
+.card--default.card--has-art .meta {
+  grid-column: 1 / -1;
+}
+
+.featured__side .card + .card {
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
 }
 
 .card--compact .card__title {
@@ -519,27 +544,15 @@ img {
 
 .row__link {
   display: grid;
-  grid-template-columns: 220px minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr);
   gap: 32px;
+  align-items: start;
   padding: 30px 0;
   text-decoration: none;
 }
 
-.row__media {
-  overflow: hidden;
-  aspect-ratio: 3 / 2;
-  background: var(--surface);
-}
-
-.row__media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.6s var(--ease);
-}
-
-.row__link:hover .row__media img {
-  transform: scale(1.04);
+.row--has-art .row__link {
+  grid-template-columns: minmax(0, 1fr) 120px;
 }
 
 .row__title {
@@ -899,15 +912,17 @@ img {
   margin: 0;
 }
 
-.article__hero {
-  margin: 40px 0 0;
+.article__head--art .article__intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 150px;
+  gap: 32px;
+  align-items: start;
 }
 
-.article__hero img {
-  width: 100%;
+.article__art {
+  margin-top: 4px;
 }
 
-.article__hero figcaption,
 .prose figcaption {
   margin-top: 10px;
   color: var(--muted);
@@ -1324,8 +1339,9 @@ img {
     gap: 24px;
   }
 
-  .card--compact .card__link {
-    grid-template-columns: 80px minmax(0, 1fr);
+  .featured__side .card + .card {
+    padding-top: 0;
+    border-top: 0;
   }
 
   .site-footer__inner {
@@ -1382,11 +1398,6 @@ img {
     transform: translateY(-6.5px) rotate(-45deg);
   }
 
-  .row__link {
-    grid-template-columns: 140px minmax(0, 1fr);
-    gap: 20px;
-  }
-
   .page-head--person {
     flex-direction: column;
     gap: 20px;
@@ -1402,13 +1413,53 @@ img {
     font-size: 16px;
   }
 
-  .row__link {
-    grid-template-columns: 1fr;
+  .card--has-art .card__link,
+  .row--has-art .row__link {
     gap: 16px;
   }
 
-  .row__media {
-    aspect-ratio: 16 / 9;
+  .card--default {
+    --art-size: 80px;
+  }
+
+  .row--has-art .row__link {
+    grid-template-columns: minmax(0, 1fr) 80px;
+    row-gap: 0;
+  }
+
+  .row--has-art .row__body {
+    display: contents;
+  }
+
+  .row__art {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+  }
+
+  .row--has-art .row__subtitle,
+  .row--has-art .meta {
+    grid-column: 1 / -1;
+  }
+
+  /* On phones the lead drawing sits above the headline so the title keeps its width. */
+  .card--lead.card--has-art .card__link {
+    grid-template-columns: 1fr;
+  }
+
+  .card--lead .card__art {
+    order: -1;
+    width: 112px;
+  }
+
+  .article__head--art .article__intro {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .article__art {
+    order: -1;
+    width: 96px;
+    margin-top: 0;
   }
 
   .archive__controls {

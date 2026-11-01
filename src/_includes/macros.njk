@@ -23,18 +23,18 @@
   {% endif %}
 {% endmacro %}
 
+{# Square drawing shown beside a headline. Only rendered when the article sets `image`. #}
+{% macro art(src, className) %}
+  <div class="art {{ className }}">
+    <img src="{{ src }}" alt="" width="600" height="600" loading="lazy" decoding="async" />
+  </div>
+{% endmacro %}
+
 {% macro articleCard(post, size = "default") %}
   {% set cat = post.data.category | category %}
   {% set writer = post.data.author | author %}
-  <article class="card card--{{ size }} reveal">
+  <article class="card card--{{ size }}{{ ' card--has-art' if post.data.image }} reveal">
     <a class="card__link" href="{{ post.url }}">
-      <div class="card__media">
-        <img
-          src="{{ post.data.image or '/images/abstract-' + post.data.category + '.svg' }}"
-          alt=""
-          loading="lazy"
-        />
-      </div>
       <div class="card__body">
         <p class="label">{{ cat.name }}{% if post.data.subcategory %} · {{ post.data.subcategory }}{% endif %}</p>
         <h3 class="card__title">{{ post.data.title }}</h3>
@@ -49,6 +49,7 @@
           {{ post.date | readableDate }}
         </p>
       </div>
+      {% if post.data.image %}{{ art(post.data.image, "card__art") }}{% endif %}
     </a>
   </article>
 {% endmacro %}
@@ -57,18 +58,11 @@
   {% set cat = post.data.category | category %}
   {% set writer = post.data.author | author %}
   <article
-    class="row reveal"
+    class="row{{ ' row--has-art' if post.data.image }} reveal"
     data-category="{{ post.data.category }}"
     data-search="{{ post.data.title }} {{ post.data.subtitle }} {{ writer.name if writer else post.data.author }} {{ cat.name }} {{ post.data.subcategory }} {{ post.data.topics | join(' ') if post.data.topics }}"
   >
     <a class="row__link" href="{{ post.url }}">
-      <div class="row__media">
-        <img
-          src="{{ post.data.image or '/images/abstract-' + post.data.category + '.svg' }}"
-          alt=""
-          loading="lazy"
-        />
-      </div>
       <div class="row__body">
         <p class="label">{{ cat.name }}{% if post.data.subcategory %} · {{ post.data.subcategory }}{% endif %}</p>
         <h3 class="row__title">{{ post.data.title }}</h3>
@@ -83,6 +77,7 @@
           {{ post.date | readableDate }}
         </p>
       </div>
+      {% if post.data.image %}{{ art(post.data.image, "row__art") }}{% endif %}
     </a>
   </article>
 {% endmacro %}

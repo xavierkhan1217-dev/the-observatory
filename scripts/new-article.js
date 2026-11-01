@@ -39,6 +39,8 @@ featured: false
 topics: []
 # Optional: set math: true to render LaTeX, e.g. $Y = A K^{\\alpha} L^{1-\\alpha}$
 # Optional: references: ["Author (2026). Title. Journal."]
+# Optional: image: /images/articles/${slug}.png  (square drawing, see CLAUDE.md)
+# Optional: imageAlt: "What the drawing shows"
 ---
 
 Write the article here in Markdown.

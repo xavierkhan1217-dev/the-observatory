@@ -31,10 +31,29 @@ subcategory: Regulation       # must match categories.js
 date: 2026-10-20
 featured: true
 topics: ["Topic", "Topic"]
+image: /images/articles/race-to-keep-europes-unicorns.png   # optional, see below
+imageAlt: "A unicorn wheeling a suitcase towards the exit"   # optional, describes the drawing
 references:
   - "Publisher, <a href='URL'>Title</a>, D Month YYYY."
 ---
 ```
+
+### Article drawings (optional)
+
+Each article can have one small square drawing. It appears beside the headline on cards, on the
+article page and in link previews when the article is shared. Articles without one show as
+text-only cards, which is fine.
+
+- Save the file in `src/images/articles/`, named after the article's filename (for example
+  `race-to-keep-europes-unicorns.png`), and set `image:` to its path as above.
+- PNG or JPG (not SVG: link previews ignore SVG). Square only, about 800 × 800 pixels and ideally
+  under 300 KB. Image tools often export 1024 × 1024
+  files of 1–2 MB; shrink them first. On a Mac: `sips -Z 800 file.png`.
+- Keep one house style so the drawings look like they belong together. Prompt used so far:
+  *"Simple editorial cartoon, bold ink lines, flat navy (#0a2240) and pale blue only, plain white
+  background, one central object or scene, no text, no real people's faces, square."*
+- It is shown as small as 72–96 pixels on cards, so use bold lines and one clear shape.
+- Draw the idea of the story rather than caricaturing named people.
 
 Before pushing an article, run `npm run build` and check that it builds cleanly. Then confirm the
 article page renders correctly.
