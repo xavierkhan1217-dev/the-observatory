@@ -20,25 +20,9 @@
   --wrap: 1180px;
   --gutter: 28px;
   --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #071a32;
-    --bg-tint: #0b2240;
-    --surface: #0e2747;
-    --navy: #050f1f;
-    --navy-deep: #040c19;
-    --ink: #eaf2fc;
-    --ink-2: #bcd0e8;
-    --muted: #89a3c4;
-    --line: #1c3a5e;
-    --line-strong: #5b7ca8;
-    --accent: #7fb2f0;
-    --accent-soft: #10243f;
-    --on-navy: #f2f7fd;
-    --on-navy-muted: #9db4d2;
-  }
+  /* The site is light only, even when the device is in dark mode. */
+  color-scheme: light;
 }
 
 * {
@@ -419,16 +403,6 @@ img {
   /* Lets a drawing's white background take on the page colour. */
   mix-blend-mode: multiply;
   transition: transform 0.6s var(--ease);
-}
-
-@media (prefers-color-scheme: dark) {
-  .art {
-    background: #fff;
-  }
-
-  .art img {
-    mix-blend-mode: normal;
-  }
 }
 
 .card__link:hover .art img,
