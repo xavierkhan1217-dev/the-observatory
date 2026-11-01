@@ -40,4 +40,16 @@ module.exports = [
     ],
     bio: "Politics & Philosophy student with interests in political economy, public policy, political theory, institutions and international affairs.",
   },
+  {
+    slug: "alex-rogers",
+    name: "Alex Rogers",
+    role: "Contributor",
+    university: "Durham University",
+    degree: "Philosophy",
+    year: "",
+    photo: "",
+    linkedin: "",
+    interests: ["Philosophy of mind", "Environmental ethics"],
+    bio: "Philosophy student with interests in philosophy of mind and environmental ethics.",
+  },
 ];
