@@ -58,13 +58,14 @@ layout: base.njk
   </div>
   <div class="grid grid--3">
     {% for category in categories %}
-      <a class="topic reveal" href="/{{ category.slug }}/">
-        <h3 class="topic__name">{{ category.name }}</h3>
-        <p class="topic__blurb">{{ category.blurb }}</p>
-        <span class="topic__count">
-          {{ collections.articles | byCategory(category.slug) | length }} article{{ "s" if (collections.articles | byCategory(category.slug) | length) != 1 }}
-        </span>
-      </a>
+      {% set count = collections.articles | byCategory(category.slug) | length %}
+      {% if count %}
+        <a class="topic reveal" href="/{{ category.slug }}/">
+          <h3 class="topic__name">{{ category.name }}</h3>
+          <p class="topic__blurb">{{ category.blurb }}</p>
+          <span class="topic__count">{{ count }} article{{ "s" if count != 1 }}</span>
+        </a>
+      {% endif %}
     {% endfor %}
   </div>
 </section>
