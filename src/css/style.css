@@ -1,13 +1,13 @@
 :root {
-  --bg: #efeadf;
-  --bg-tint: #e6dfd1;
-  --surface: #e6dfd1;
+  --bg: #e9e2d3;
+  --bg-tint: #ded4c0;
+  --surface: #ded4c0;
   --navy: #0a2240;
   --navy-deep: #071a32;
   --ink: #0a2240;
   --ink-2: #33517a;
-  --muted: #4f6282;
-  --line: #d6cdbc;
+  --muted: #44567a;
+  --line: #cdc2ad;
   --line-strong: #0a2240;
   --accent: #1a56a8;
   --accent-soft: #e8f0fb;
