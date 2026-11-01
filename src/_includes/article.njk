@@ -101,6 +101,13 @@ layout: base.njk
       </section>
     {% endif %}
   </div>
+
+  {% if image %}
+    {# Wide screens: the drawing fills the open column to the right of the text. #}
+    <aside class="art article__art-side">
+      <img src="{{ image }}" alt="{{ imageAlt or '' }}" width="600" height="600" decoding="async" />
+    </aside>
+  {% endif %}
 </article>
 
 {% set relatedPosts = collections.articles | related({ url: page.url, data: { category: category } }) %}
