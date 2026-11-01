@@ -187,6 +187,7 @@ One line per published story, newest first. Update this when publishing a new pi
 
 Format: Date | Headline | Beat | Author
 
+- 2026-11-01 | What is it like to be a lagoon? | Ideas / environmental ethics | Alex Rogers
 - 2026-11-01 | Winds of Change in Europe | Diplomacy / UK–EU relations | Giorgio Monticelli
 - 2026-10-20 | The race to keep Europe's unicorns | EU policy / business | Giorgio Monticelli
 
