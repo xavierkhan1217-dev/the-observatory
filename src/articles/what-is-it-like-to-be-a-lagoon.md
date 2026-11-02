@@ -6,6 +6,8 @@ category: ideas
 subcategory: Ethics
 date: 2026-11-01
 featured: false
+image: /images/articles/what-is-it-like-to-be-a-lagoon.jpg
+imageAlt: "Painted courtroom where a judge looks down at a witness box filled with rippling lagoon water"
 topics: ["Mar Menor", "Rights of nature", "Panpsychism", "Environmental ethics"]
 ---
 
