@@ -23,7 +23,7 @@ references:
 
 On 16 September the Federal Reserve raised interest rates for the first time since 2023. The Federal Open Market Committee lifted its target range by a quarter point, to 3.75–4 per cent, undoing the cuts it had made the year before. The vote was unanimous. Kevin Warsh, who became chair in May after one of the closest confirmation votes in the Fed's history, has indicated another rise could come before the year is out. Markets now put the odds of a December increase near 90 per cent, up from roughly three-quarters.
 
-On the numbers available in September, the decision looked premature. Headline inflation was running near 3.6 per cent, but core inflation — the measure that strips out food and energy — stood at 2.4 per cent. The gap was almost entirely energy, with Brent above $100 a barrel on the back of the war in Iran.
+On the numbers available in September, the decision looked premature. Headline inflation was running near 3.6 per cent, but core inflation, the measure that strips out food and energy, stood at 2.4 per cent. The gap was almost entirely energy, with Brent above $100 a barrel on the back of the war in Iran.
 
 That distinction matters more than it sounds. Inflation is a sustained rise in the general price level. An oil-price rise is a relative price change: energy becomes dearer against everything else. Households feel poorer either way, but the cause differs, and so should the response.
 
@@ -41,8 +41,8 @@ There is a second argument, made less openly. Raising rates works as a signal as
 
 Monetary policy also works with a lag of twelve to eighteen months. A central bank waiting for pass-through to appear in the data is a central bank acting a year too late.
 
-And the pass-through has started to appear. The September figures, published on 14 October, put core inflation at 2.6 per cent, up from 2.4, with headline at 3.7. Two prints do not make a trend, and one month's move is not proof. But it is the first evidence that the energy shock is feeding into prices beyond energy — which is precisely the risk the committee said it was acting against.
+And the pass-through has started to appear. The September figures, published on 14 October, put core inflation at 2.6 per cent, up from 2.4, with headline at 3.7. Two prints do not make a trend, and one month's move is not proof. But it is the first evidence that the energy shock is feeding into prices beyond energy, which is precisely the risk the committee said it was acting against.
 
 That does not vindicate the decision. It makes the alternative look worse. Had the Fed waited for confirmation, it would have been tightening into a spiral rather than ahead of one, and the rate needed to stop it would have been considerably higher than four per cent.
 
-The committee will meet again on 28 October. On the evidence of the past month, the charge against it is not that it moved without cause. It is that it moved before the cause was visible — which, for a central bank whose main asset is being believed, is not obviously a mistake.
+The committee will meet again on 28 October. On the evidence of the past month, the charge against it is not that it moved without cause. It is that it moved before the cause was visible, which, for a central bank whose main asset is being believed, is not obviously a mistake.
