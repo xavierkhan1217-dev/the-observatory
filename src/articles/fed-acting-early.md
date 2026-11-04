@@ -7,6 +7,8 @@ subcategory: Monetary Policy
 date: 2026-10-20
 featured: false
 topics: ["Federal Reserve", "Inflation", "Energy"]
+image: /images/articles/fed-acting-early.jpg
+imageAlt: "Painted bald eagle in a stars-and-stripes sash straining at a brake lever while an oil barrel brimming with gold oil stands unmoved beside it"
 references:
   - "Federal Reserve, <a href=\"https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916a.htm\">Federal Reserve Issues FOMC Statement</a>, 16 September 2026."
   - "Federal Reserve, <a href=\"https://www.federalreserve.gov/mediacenter/files/FOMCpresconf20260916.pdf\">Transcript of Chair Warsh's Press Conference</a>, 16 September 2026."
