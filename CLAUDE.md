@@ -189,6 +189,7 @@ Format: Date | Headline | Beat | Author
 
 - 2026-11-01 | What is it like to be a lagoon? | Ideas / environmental ethics | Alex Rogers
 - 2026-11-01 | Winds of Change in Europe | Diplomacy / UK–EU relations | Giorgio Monticelli
+- 2026-10-20 | The Fed Moved Before the Data Told It To | Economics / monetary policy | Xavier Khan
 - 2026-10-20 | The race to keep Europe's unicorns | EU policy / business | Giorgio Monticelli
 
 Other articles already on the site are in `src/articles/`. Check them too.
